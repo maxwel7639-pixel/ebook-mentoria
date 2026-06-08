@@ -1,1083 +1,460 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sites com Custo Zero — O Guia Completo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/mx-logo.png">
+<title>Sites com Custo Zero — MX Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080808;
+    --bg-soft:#101012;
+    --card:#141417;
+    --border:#26262b;
+    --txt:#f4f4f6;
+    --txt-dim:#a3a3ad;
+    --roxo:#6D5CF5;
+    --roxo-claro:#8B7CF8;
+    --display:"Bricolage Grotesque",sans-serif;
+    --body:"Hanken Grotesk",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:820px;
+    margin:0 auto;
+    padding:90px 56px;
+    border-bottom:1px solid var(--border);
+    position:relative;
+  }
+  /* ---------- COVER ---------- */
+  .cover{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:space-between;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(109,92,245,.28), transparent 60%),
+      radial-gradient(700px 400px at -10% 110%, rgba(139,124,248,.18), transparent 55%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+    pointer-events:none;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;position:relative;z-index:2}
+  .brand .dot{width:38px;height:38px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 30px rgba(109,92,245,.45),0 2px 10px rgba(0,0,0,.4)}
+  .cover-mid{position:relative;z-index:2}
+  .eyebrow{
+    display:inline-block;font-family:var(--body);font-weight:600;font-size:13px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--roxo-claro);
+    border:1px solid var(--border);border-radius:100px;padding:7px 16px;margin-bottom:28px;
+    background:rgba(109,92,245,.08);
+  }
+  h1.cover-title{
+    font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:.96;
+    font-size:clamp(52px,9vw,92px);
+  }
+  h1.cover-title .hl{
+    background:linear-gradient(120deg,var(--roxo-claro),var(--roxo));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .cover-sub{
+    font-size:clamp(17px,2.4vw,21px);color:var(--txt-dim);max-width:600px;margin-top:28px;font-weight:400;
+  }
+  .cover-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+  .cover-foot .by{font-family:var(--display);font-weight:700;font-size:18px}
+  .cover-foot .by span{color:var(--txt-dim);font-family:var(--body);font-weight:400;font-size:14px;display:block;margin-top:2px}
+  .cover-foot .ed{font-size:13px;color:var(--txt-dim);text-align:right}
 
-    :root {
-      --brand:      #7C3AED;
-      --brand-dark: #5B21B6;
-      --brand-soft: #EDE9FE;
-      --accent:     #F59E0B;
-      --accent-soft:#FEF3C7;
-      --green:      #10B981;
-      --green-soft: #D1FAE5;
-      --red:        #EF4444;
-      --gray-50:    #F9FAFB;
-      --gray-100:   #F3F4F6;
-      --gray-200:   #E5E7EB;
-      --gray-400:   #9CA3AF;
-      --gray-600:   #4B5563;
-      --gray-800:   #1F2937;
-      --gray-900:   #111827;
-      --text:       #1F2937;
-      --radius:     16px;
-    }
+  /* ---------- TYPE ---------- */
+  .kicker{font-family:var(--body);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--roxo-claro);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--roxo)}
+  h2{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(32px,5vw,46px);margin-bottom:24px}
+  h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:24px;margin:38px 0 14px}
+  p{margin-bottom:18px;font-size:17px;color:#dcdce2}
+  p.lead{font-size:20px;color:var(--txt)}
+  strong{color:#fff;font-weight:700}
+  .roxo{color:var(--roxo-claro);font-weight:600}
+  ul.clean{list-style:none;margin:18px 0 24px}
+  ul.clean li{position:relative;padding-left:30px;margin-bottom:14px;font-size:17px;color:#dcdce2}
+  ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:3px;background:linear-gradient(135deg,var(--roxo),var(--roxo-claro))}
 
-    html { scroll-behavior: smooth; }
+  /* ---------- TOC ---------- */
+  .toc-item{display:flex;align-items:baseline;gap:18px;padding:18px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--txt);transition:.25s}
+  .toc-item:hover{padding-left:10px;color:var(--roxo-claro)}
+  .toc-num{font-family:var(--display);font-weight:800;font-size:18px;color:var(--roxo);min-width:34px}
+  .toc-name{font-family:var(--display);font-weight:600;font-size:19px;flex:1}
+  .toc-dots{flex:1;border-bottom:1px dotted var(--border);transform:translateY(-5px)}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: var(--text);
-      line-height: 1.7;
-    }
+  /* ---------- CALLOUTS ---------- */
+  .box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 30px;margin:30px 0}
+  .box.accent{border-color:rgba(109,92,245,.45);background:linear-gradient(180deg,rgba(109,92,245,.10),rgba(109,92,245,.02))}
+  .box .box-tag{font-family:var(--display);font-weight:700;font-size:14px;color:var(--roxo-claro);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;display:block}
+  .box p:last-child{margin-bottom:0}
 
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--gray-100); }
-    ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 99px; }
+  /* ---------- IMG PLACEHOLDER ---------- */
+  .shot{border:1.5px dashed #3a3a44;border-radius:16px;background:repeating-linear-gradient(135deg,#0e0e10,#0e0e10 14px,#121216 14px,#121216 28px);padding:46px 28px;text-align:center;margin:30px 0}
+  .shot .ico{width:50px;height:50px;margin:0 auto 16px;border-radius:13px;background:rgba(109,92,245,.14);border:1px solid rgba(109,92,245,.4);display:flex;align-items:center;justify-content:center;font-size:24px}
+  .shot .lbl{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--roxo-claro);margin-bottom:6px}
+  .shot .desc{font-size:15px;color:var(--txt-dim);max-width:440px;margin:0 auto}
 
-    /* ── UTILITIES ── */
-    .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
-    .tag {
-      display: inline-block;
-      font-size: 11px; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 4px 12px; border-radius: 99px;
-    }
-    .tag-purple { background: var(--brand-soft); color: var(--brand-dark); }
-    .tag-yellow { background: var(--accent-soft); color: #92400E; }
-    .tag-green  { background: var(--green-soft);  color: #065F46; }
-    .tag-red    { background: #FEE2E2; color: #991B1B; }
+  /* ---------- FIGURES (real screenshots) ---------- */
+  figure.fig{margin:30px 0}
+  figure.fig img{width:100%;display:block;border-radius:14px;border:1px solid var(--border);background:#0c0c0e;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  figure.fig figcaption{margin-top:13px;display:flex;gap:12px;align-items:baseline}
+  figure.fig figcaption .ftag{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--roxo-claro);white-space:nowrap;padding-top:1px}
+  figure.fig figcaption .fdesc{font-size:14.5px;color:var(--txt-dim);line-height:1.5}
+  .fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0}
+  .fig-grid figure.fig{margin:0}
+  .fig-grid figure.fig img{box-shadow:0 16px 40px rgba(0,0,0,.5)}
+  @media(max-width:600px){.fig-grid{grid-template-columns:1fr}}
 
-    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+  /* ---------- STEP CARDS ---------- */
+  .steps{display:grid;gap:14px;margin:26px 0}
+  .step{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px}
+  .step .n{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;background:linear-gradient(135deg,var(--roxo-claro),var(--roxo));-webkit-background-clip:text;background-clip:text;color:transparent;min-width:42px}
+  .step .st-t{font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:4px}
+  .step .st-d{font-size:15px;color:var(--txt-dim)}
 
-    /* ── COVER ── */
-    #cover {
-      background: linear-gradient(135deg, #1E0A3C 0%, #4C1D95 45%, #7C3AED 100%);
-      color: #fff;
-      padding: 80px 0 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    #cover::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    #cover .container { position: relative; }
+  /* ---------- TABLE ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:26px 0;font-size:16px;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  .tbl th{background:var(--bg-soft);text-align:left;padding:16px 20px;font-family:var(--display);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--roxo-claro)}
+  .tbl td{padding:16px 20px;border-top:1px solid var(--border);color:#dcdce2}
+  .tbl td.zero{color:#5fd38a;font-weight:700;font-family:var(--display)}
 
-    .cover-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
-      border-radius: 99px; padding: 6px 16px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,.9);
-      margin-bottom: 28px;
-    }
-    .cover-badge span { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; display: block; }
+  /* ---------- CTA PAGE ---------- */
+  .cta{background:radial-gradient(700px 400px at 50% 0%,rgba(109,92,245,.25),transparent 60%),var(--bg);text-align:center}
+  .cta h2{font-size:clamp(34px,6vw,54px)}
+  .btn{display:inline-block;margin-top:18px;background:linear-gradient(135deg,var(--roxo),var(--roxo-claro));color:#fff;font-family:var(--display);font-weight:700;font-size:18px;padding:18px 40px;border-radius:100px;text-decoration:none;box-shadow:0 14px 40px rgba(109,92,245,.45);transition:.25s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(109,92,245,.6)}
+  .social{margin-top:34px;color:var(--txt-dim);font-size:15px}
+  .social b{color:#fff}
 
-    #cover h1 {
-      font-size: clamp(36px, 7vw, 62px);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    #cover h1 em { font-style: normal; color: #FCD34D; }
+  .pg-num{position:absolute;bottom:28px;right:56px;font-family:var(--display);font-weight:700;font-size:13px;color:#46464f}
+  .mini{font-size:14px;color:var(--txt-dim);font-style:italic}
 
-    .cover-sub {
-      font-size: 18px; color: rgba(255,255,255,.8);
-      max-width: 560px; margin-bottom: 40px; line-height: 1.6;
-    }
-
-    .cover-stats {
-      display: flex; gap: 40px; flex-wrap: wrap;
-      padding: 28px 0; border-top: 1px solid rgba(255,255,255,.15);
-    }
-    .stat-item { display: flex; flex-direction: column; }
-    .stat-num { font-size: 28px; font-weight: 800; color: #FCD34D; }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,.65); }
-
-    .cover-author {
-      display: flex; align-items: center; gap: 14px;
-      margin-top: 36px;
-    }
-    .author-avatar {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: linear-gradient(135deg, #F59E0B, #EF4444);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 800; color: #fff;
-      flex-shrink: 0;
-    }
-    .author-info small { font-size: 12px; color: rgba(255,255,255,.55); display: block; }
-    .author-info strong { font-size: 15px; color: #fff; }
-
-    /* ── PROMISE BAR ── */
-    .promise-bar {
-      background: var(--accent);
-      padding: 14px 0;
-      text-align: center;
-    }
-    .promise-bar p {
-      font-size: 14px; font-weight: 600; color: #1C1917;
-    }
-    .promise-bar p span { font-weight: 800; }
-
-    /* ── SECTIONS ── */
-    .section { padding: 64px 0; }
-    .section-alt { background: var(--gray-50); }
-
-    .section-header { margin-bottom: 40px; }
-    .section-header h2 { font-size: clamp(26px, 4vw, 36px); margin-top: 10px; margin-bottom: 14px; }
-    .section-header p { font-size: 16px; color: var(--gray-600); max-width: 580px; }
-
-    /* ── INTRO NOTE ── */
-    .intro-note {
-      background: var(--brand-soft);
-      border-left: 4px solid var(--brand);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 20px 24px; margin-bottom: 32px;
-    }
-    .intro-note p { font-size: 15px; color: var(--brand-dark); }
-
-    /* ── CARDS ── */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      transition: box-shadow .2s, transform .2s;
-    }
-    .card:hover { box-shadow: 0 8px 32px rgba(124,58,237,.12); transform: translateY(-3px); }
-
-    .card-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; margin-bottom: 14px;
-      background: var(--brand-soft);
-    }
-    .card h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-    .card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
-
-    /* ── TOOL ITEM ── */
-    .tool-item {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 20px 0; border-bottom: 1px solid var(--gray-200);
-    }
-    .tool-item:last-child { border-bottom: none; }
-    .tool-badge {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0; color: #fff;
-    }
-    .tool-info h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 4px; }
-    .tool-info p { font-size: 13px; color: var(--gray-600); }
-    .tool-pros { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-    .pro { background: var(--green-soft); color: #065F46; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
-    .con { background: #FEE2E2; color: #991B1B; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
-
-    /* ── STEP BOX ── */
-    .steps { display: flex; flex-direction: column; gap: 24px; }
-    .step {
-      display: flex; gap: 20px; align-items: flex-start;
-    }
-    .step-num {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-      color: #fff; font-weight: 800; font-size: 16px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .step-content h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
-    .step-content p { font-size: 14px; color: var(--gray-600); }
-    .step-content .tip {
-      background: var(--accent-soft);
-      border-radius: 8px; padding: 10px 14px;
-      font-size: 13px; color: #92400E;
-      margin-top: 10px; display: inline-block;
-    }
-
-    /* ── TEASER / BLUR SECTION ── */
-    .teaser-block {
-      position: relative; border-radius: var(--radius);
-      overflow: hidden; margin: 32px 0;
-      border: 2px dashed var(--brand);
-    }
-    .teaser-content {
-      padding: 28px 24px;
-      filter: blur(4px);
-      user-select: none; pointer-events: none;
-    }
-    .teaser-overlay {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      background: rgba(124,58,237,.08);
-      backdrop-filter: blur(2px);
-      gap: 14px;
-      text-align: center; padding: 20px;
-    }
-    .teaser-overlay .lock-icon { font-size: 36px; }
-    .teaser-overlay h4 { font-size: 18px; color: var(--brand-dark); }
-    .teaser-overlay p { font-size: 14px; color: var(--gray-600); max-width: 360px; }
-
-    /* ── CTA BLOCKS ── */
-    .cta-inline {
-      background: linear-gradient(135deg, #2D0D6E 0%, #4C1D95 50%, #7C3AED 100%);
-      border-radius: var(--radius);
-      padding: 36px 32px; margin: 40px 0;
-      color: #fff; position: relative; overflow: hidden;
-    }
-    .cta-inline::before {
-      content: '';
-      position: absolute; top: -40px; right: -40px;
-      width: 200px; height: 200px; border-radius: 50%;
-      background: rgba(255,255,255,.05);
-    }
-    .cta-inline .tag { margin-bottom: 12px; background: rgba(255,255,255,.15); color: #FCD34D; }
-    .cta-inline h3 { font-size: 24px; color: #fff; margin-bottom: 10px; }
-    .cta-inline p { font-size: 15px; color: rgba(255,255,255,.8); margin-bottom: 22px; max-width: 480px; }
-    .cta-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-    .cta-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.9); }
-    .cta-feature::before { content: '✓'; width: 20px; height: 20px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent);
-      color: #1C1917; font-weight: 800; font-size: 15px;
-      padding: 14px 28px; border-radius: 99px;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .btn-primary:hover { transform: scale(1.04); box-shadow: 0 8px 24px rgba(245,158,11,.4); }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent;
-      color: rgba(255,255,255,.8); font-weight: 600; font-size: 14px;
-      padding: 12px 24px; border-radius: 99px;
-      border: 1px solid rgba(255,255,255,.25);
-      text-decoration: none; cursor: pointer;
-      transition: background .15s;
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,.1); }
-
-    /* ── CHECKLIST ── */
-    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .checklist li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 15px; color: var(--gray-800);
-    }
-    .checklist li::before {
-      content: '✓'; width: 22px; height: 22px; border-radius: 6px;
-      background: var(--green-soft); color: var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 800; flex-shrink: 0; margin-top: 1px;
-    }
-
-    /* ── WARNING BOX ── */
-    .warning-box {
-      background: #FFF7ED; border: 1px solid #FED7AA;
-      border-radius: var(--radius); padding: 20px 24px;
-      display: flex; gap: 14px; align-items: flex-start;
-      margin: 24px 0;
-    }
-    .warning-box .icon { font-size: 22px; flex-shrink: 0; }
-    .warning-box h5 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: #92400E; margin-bottom: 4px; }
-    .warning-box p { font-size: 14px; color: #78350F; }
-
-    .success-box {
-      background: var(--green-soft); border: 1px solid #6EE7B7;
-      border-radius: var(--radius); padding: 20px 24px;
-      display: flex; gap: 14px; align-items: flex-start;
-      margin: 24px 0;
-    }
-    .success-box .icon { font-size: 22px; flex-shrink: 0; }
-    .success-box h5 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: #065F46; margin-bottom: 4px; }
-    .success-box p { font-size: 14px; color: #064E3B; }
-
-    /* ── COMPARISON TABLE ── */
-    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
-    .compare-table th {
-      padding: 14px 16px; text-align: left;
-      font-weight: 700; font-size: 13px;
-    }
-    .compare-table th:first-child { color: var(--gray-600); width: 40%; }
-    .compare-table th:nth-child(2) { background: var(--gray-100); color: var(--gray-600); border-radius: 12px 12px 0 0; text-align: center; }
-    .compare-table th:nth-child(3) { background: var(--brand); color: #fff; border-radius: 12px 12px 0 0; text-align: center; }
-    .compare-table td { padding: 12px 16px; border-top: 1px solid var(--gray-200); vertical-align: middle; }
-    .compare-table td:nth-child(2) { background: var(--gray-50); text-align: center; }
-    .compare-table td:nth-child(3) { background: var(--brand-soft); text-align: center; font-weight: 600; color: var(--brand-dark); }
-    .compare-table .check { color: var(--green); font-size: 16px; }
-    .compare-table .cross { color: var(--red); font-size: 16px; }
-
-    /* ── ICEBERG ── */
-    .iceberg-wrap { text-align: center; margin: 32px 0; }
-    .iceberg {
-      display: inline-flex; flex-direction: column;
-      gap: 0; width: 100%; max-width: 480px;
-    }
-    .ice-visible {
-      background: linear-gradient(135deg, #7C3AED, #5B21B6);
-      color: #fff; padding: 24px 32px; border-radius: 12px 12px 0 0;
-    }
-    .ice-visible h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
-    .ice-below {
-      background: linear-gradient(135deg, #1E0A3C, #2D0D6E);
-      color: rgba(255,255,255,.75); padding: 28px 32px; border-radius: 0 0 12px 12px;
-      border: 2px dashed rgba(255,255,255,.15);
-    }
-    .ice-below h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 10px; color: #FCD34D; }
-    .ice-list { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 6px; }
-    .ice-list li { font-size: 13px; padding-left: 18px; position: relative; }
-    .ice-list li::before { content: '→'; position: absolute; left: 0; color: var(--brand); }
-    .ice-list li.locked { filter: blur(3px); user-select: none; }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials { display: flex; flex-direction: column; gap: 20px; }
-    .testimonial {
-      background: #fff; border: 1px solid var(--gray-200);
-      border-radius: var(--radius); padding: 24px;
-      position: relative;
-    }
-    .testimonial::before {
-      content: '"';
-      position: absolute; top: 16px; right: 20px;
-      font-size: 60px; color: var(--brand-soft);
-      font-family: 'Playfair Display', serif; line-height: 1;
-    }
-    .test-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .test-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 16px; color: #fff; flex-shrink: 0;
-    }
-    .test-name { font-weight: 700; font-size: 14px; }
-    .test-role { font-size: 12px; color: var(--gray-400); }
-    .stars { color: var(--accent); font-size: 14px; margin-bottom: 4px; }
-    .testimonial p { font-size: 14px; color: var(--gray-600); font-style: italic; line-height: 1.65; }
-
-    /* ── FINAL CTA ── */
-    #final-cta {
-      background: linear-gradient(135deg, #0F0522 0%, #1E0A3C 40%, #3B0764 100%);
-      padding: 100px 0; text-align: center; color: #fff;
-      position: relative; overflow: hidden;
-    }
-    #final-cta::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,.25) 0%, transparent 70%);
-    }
-    #final-cta .container { position: relative; z-index: 1; }
-    #final-cta h2 { font-size: clamp(28px, 5vw, 46px); color: #fff; margin-bottom: 16px; }
-    #final-cta h2 em { font-style: normal; color: #FCD34D; }
-    #final-cta > .container > p { font-size: 17px; color: rgba(255,255,255,.75); max-width: 540px; margin: 0 auto 36px; }
-
-    .price-badge {
-      display: inline-flex; flex-direction: column; align-items: center;
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
-      border-radius: var(--radius); padding: 20px 32px; margin-bottom: 32px;
-    }
-    .price-badge .old-price { font-size: 14px; color: rgba(255,255,255,.4); text-decoration: line-through; }
-    .price-badge .new-price { font-size: 42px; font-weight: 900; color: #FCD34D; line-height: 1; }
-    .price-badge .price-sub { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 4px; }
-
-    .guarantee {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 13px; color: rgba(255,255,255,.6);
-      margin-top: 20px;
-    }
-    .guarantee .shield { font-size: 20px; }
-
-    /* ── DIVIDER ── */
-    .divider { height: 1px; background: var(--gray-200); margin: 32px 0; }
-
-    /* ── CHAPTER HEADER ── */
-    .chapter-num {
-      font-size: 12px; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--brand); margin-bottom: 8px;
-    }
-
-    /* ── PROGRESS BAR ── */
-    .progress-section {
-      background: var(--gray-50); border-radius: var(--radius);
-      padding: 24px; margin: 24px 0;
-    }
-    .progress-item { margin-bottom: 16px; }
-    .progress-item:last-child { margin-bottom: 0; }
-    .progress-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; font-weight: 600; }
-    .progress-bar-bg { height: 8px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
-    .progress-bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--brand), #A855F7); }
-
-    /* ── HIGHLIGHT ── */
-    mark { background: #FEF08A; padding: 1px 4px; border-radius: 4px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--gray-900); color: var(--gray-400);
-      text-align: center; padding: 32px 0;
-      font-size: 13px;
-    }
-    footer strong { color: #fff; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .cover-stats { gap: 24px; }
-      .cta-inline { padding: 28px 20px; }
-      .card-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  @media(max-width:600px){
+    .page{padding:64px 26px}
+    .cover{padding:48px 26px}
+    .pg-num{right:26px}
+    .step{flex-direction:row}
+  }
+  @media print{
+    .page{page-break-after:always;border-bottom:none;min-height:auto}
+    body{background:#fff}
+  }
+</style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPA
-═══════════════════════════════════════════════════════ -->
-<section id="cover">
-  <div class="container">
-    <div class="cover-badge">
-      <span></span>
-      Atualizado em 2024 · Edição Premium Gratuita
-    </div>
-
-    <h1>Sites com<br><em>Custo Zero</em></h1>
-    <p class="cover-sub">
-      O guia definitivo para criar, publicar e colocar seu site no ar sem gastar <strong style="color:#fff">um único centavo</strong> — usando ferramentas profissionais que os grandes negócios usam.
-    </p>
-
-    <div class="cover-stats">
-      <div class="stat-item">
-        <span class="stat-num">7</span>
-        <span class="stat-label">Ferramentas gratuitas</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">5</span>
-        <span class="stat-label">Capítulos práticos</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">R$0</span>
-        <span class="stat-label">Custo para começar</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">+1.2k</span>
-        <span class="stat-label">Pessoas que já aplicaram</span>
-      </div>
-    </div>
-
-    <div class="cover-author">
-      <div class="author-avatar">M</div>
-      <div class="author-info">
-        <small>Escrito por</small>
-        <strong>Maxwel Fialho · Mentor Digital</strong>
-      </div>
-    </div>
+<!-- ============ CAPA ============ -->
+<section class="page cover">
+  <div class="brand"><img class="dot" src="assets/mx-logo.png" alt="MX Digital"> MX DIGITAL</div>
+  <div class="cover-mid">
+    <span class="eyebrow">Guia prático · Edição 2026</span>
+    <h1 class="cover-title">SITES COM<br><span class="hl">CUSTO ZERO</span></h1>
+    <p class="cover-sub">O método pra criar, hospedar e entregar sites profissionais sem pagar hospedagem, sem saber programar e sem depender de plataformas caras.</p>
+  </div>
+  <div class="cover-foot">
+    <div class="by">Maxwel<span>Fundador da MX Digital · @mxdigital.ia</span></div>
+    <div class="ed">Um método testado<br>em clientes reais.</div>
   </div>
 </section>
 
-<!-- ── PROMISE BAR ── -->
-<div class="promise-bar">
-  <p>⚡ <span>Atenção:</span> Este ebook te dá a base. O caminho completo está na <span>Mentoria Premium</span> — leia até o final para entender a diferença.</p>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════
-     INTRO
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="tag tag-purple">Introdução</span>
-      <h2>Por que você precisa de um site — e pode ter um de graça</h2>
-      <p>Em 2024, não ter presença na internet é o mesmo que não existir para uma boa parte do mercado. Mas a boa notícia é que você não precisa de dinheiro para começar.</p>
-    </div>
-
-    <div class="intro-note">
-      <p><strong>Antes de começar:</strong> Este guia foi criado para quem está dando os primeiros passos. Aqui você vai aprender o suficiente para tirar um projeto do zero — mas se você quer crescer de verdade, monetizar e construir uma presença digital sólida, continue lendo até o final. Tenho algo importante para te mostrar.</p>
-    </div>
-
-    <p style="margin-bottom:20px">Quando comecei minha jornada no mundo digital, cometi o erro que a maioria comete: achei que precisava de dinheiro para começar. Paguei hosting, paguei domínio, paguei temas e plugins. Gastei mais de <strong>R$ 2.400</strong> no primeiro ano antes de ter qualquer resultado.</p>
-
-    <p style="margin-bottom:20px">Hoje sei que aquele dinheiro todo foi desnecessário. As ferramentas gratuitas que existem hoje são <mark>mais poderosas do que as pagas de 5 anos atrás</mark>.</p>
-
-    <p>Neste ebook, você vai aprender exatamente o que eu faria se começasse hoje, do zero, sem gastar nada. Mas vou ser honesto com você: o que está aqui é o <strong>ponto de partida</strong>. O que transforma isso em resultado real — tráfego, clientes, renda — está em outro nível de conhecimento. Você vai entender o que quero dizer nos próximos capítulos.</p>
-
-    <div class="card-grid" style="margin-top:36px">
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <h4>Para quem é este guia</h4>
-        <p>Empreendedores, freelancers, criadores de conteúdo e qualquer pessoa que quer ter presença digital sem custo inicial.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">⏱️</div>
-        <h4>Quanto tempo leva</h4>
-        <p>Seguindo este guia, você consegue ter um site no ar em <strong>menos de 2 horas</strong> desde o início até a publicação.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛠️</div>
-        <h4>O que você vai precisar</h4>
-        <p>Apenas um computador ou celular com internet. Sem cartão de crédito, sem assinatura, sem truques de trial.</p>
-      </div>
-    </div>
-  </div>
+<!-- ============ SUMÁRIO ============ -->
+<section class="page">
+  <div class="kicker">O que tem aqui dentro</div>
+  <h2>Sumário</h2>
+  <a class="toc-item" href="#intro"><span class="toc-num">00</span><span class="toc-name">Introdução — A real sobre criar sites hoje</span></a>
+  <a class="toc-item" href="#cap1"><span class="toc-num">01</span><span class="toc-name">Por que o jeito antigo trava você</span></a>
+  <a class="toc-item" href="#cap2"><span class="toc-num">02</span><span class="toc-name">As 4 ferramentas que mudam o jogo</span></a>
+  <a class="toc-item" href="#cap3"><span class="toc-num">03</span><span class="toc-name">Montando seu ambiente (uma vez só)</span></a>
+  <a class="toc-item" href="#cap4"><span class="toc-num">04</span><span class="toc-name">Criando seu primeiro site no Claude Design</span></a>
+  <a class="toc-item" href="#cap5"><span class="toc-num">05</span><span class="toc-name">Do design ao código — o pulo do gato</span></a>
+  <a class="toc-item" href="#cap6"><span class="toc-num">06</span><span class="toc-name">Publicando de graça (GitHub + Vercel)</span></a>
+  <a class="toc-item" href="#cap7"><span class="toc-num">07</span><span class="toc-name">E agora? O próximo nível</span></a>
+  <span class="pg-num">MX · 02</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPÍTULO 1 — POR QUE TER UM SITE
-═══════════════════════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="chapter-num">Capítulo 01</div>
-    <div class="section-header">
-      <span class="tag tag-green">Fundamento</span>
-      <h2>O que um site faz pelo seu negócio</h2>
-      <p>Antes de colocar a mão na massa, é importante entender por que um site é um dos ativos mais importantes que você pode construir.</p>
-    </div>
-
-    <ul class="checklist">
-      <li>Você aparece no Google quando alguém procura pelo que você oferece</li>
-      <li>Tem credibilidade imediata — "tem site" ainda impressiona no Brasil</li>
-      <li>Funciona 24h por dia, mesmo quando você está dormindo</li>
-      <li>É o único canal digital que você <strong>realmente controla</strong> (Instagram pode te banir; seu site, não)</li>
-      <li>Concentra todas as suas informações em um só lugar</li>
-      <li>Pode capturar contatos e construir sua lista de e-mail</li>
-    </ul>
-
-    <div class="warning-box" style="margin-top:28px">
-      <div class="icon">⚠️</div>
-      <div>
-        <h5>O erro que 90% das pessoas cometem</h5>
-        <p>Criar um site bonito mas sem estratégia. Um site que ninguém encontra é como uma loja num deserto. A diferença entre um site decorativo e um site que gera resultados está em detalhes que não cabem num guia gratuito — mas que ensino passo a passo na mentoria.</p>
-      </div>
-    </div>
-
-    <div class="progress-section">
-      <p style="font-weight:700; margin-bottom:16px; font-size:14px">O que influencia o sucesso de um site:</p>
-      <div class="progress-item">
-        <div class="progress-label"><span>Design & Usabilidade</span><span>Importante</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:60%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>SEO & Visibilidade no Google</span><span>Crítico</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%; background:linear-gradient(90deg,#EF4444,#F97316)"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Copy & Texto Persuasivo</span><span>Muito importante</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Velocidade de carregamento</span><span>Importante</span></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:65%"></div></div>
-      </div>
-    </div>
-
-    <p style="font-size:14px;color:var(--gray-600);margin-top:4px">Este ebook cobre a parte técnica. As partes marcadas como "Crítico" e "Muito importante" são o que separa um site amador de um site que vende — e são o foco principal da mentoria premium.</p>
+<!-- ============ INTRODUÇÃO ============ -->
+<section class="page" id="intro">
+  <div class="kicker">Introdução</div>
+  <h2>A real sobre criar sites hoje</h2>
+  <p class="lead">Te venderam uma mentira: a de que pra criar e vender sites você precisa primeiro passar meses aprendendo a programar, e depois pagar todo mês por hospedagem e ferramentas.</p>
+  <p>Eu acreditei nessa mentira por muito tempo. Comecei pagando plataforma que cobrava por crédito — quando eu mais precisava entregar, os créditos acabavam e eu tinha que pagar mais. Testei hospedagem mensal que comia minha margem antes mesmo do cliente pagar. E toda vez que eu travava, vinha aquela voz: "é porque você ainda não sabe programar de verdade".</p>
+  <p>Até que eu montei um caminho diferente. Um fluxo onde eu crio o site visualmente, ajusto com inteligência artificial, publico de graça e entrego pro cliente um link profissional no ar — <strong>sem pagar um centavo de hospedagem e sem escrever código do zero.</strong></p>
+  <p>Esse fluxo virou o motor da minha agência, a MX Digital. Já entreguei sites pra psicólogas, terapeutas, esteticistas e empresas com ele. E o melhor: ele é simples o suficiente pra você aplicar ainda hoje, mesmo começando do absoluto zero.</p>
+  <div class="box accent">
+    <span class="box-tag">A promessa deste guia</span>
+    <p>Ao terminar de ler, você vai ter criado e publicado <strong>seu primeiro site profissional no ar</strong>, com domínio funcionando, gastando R$0 de hospedagem. Não é teoria. É pra fazer junto.</p>
   </div>
+  <p class="mini">Leia com o computador do lado. Cada capítulo é uma etapa pra executar.</p>
+  <span class="pg-num">MX · 03</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPÍTULO 2 — FERRAMENTAS GRATUITAS
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="chapter-num">Capítulo 02</div>
-    <div class="section-header">
-      <span class="tag tag-purple">Ferramentas</span>
-      <h2>As 7 melhores plataformas gratuitas de 2024</h2>
-      <p>Testei cada uma dessas plataformas. Aqui está um resumo honesto das melhores opções gratuitas disponíveis hoje.</p>
-    </div>
+<!-- ============ CAP 1 ============ -->
+<section class="page" id="cap1">
+  <div class="kicker">Capítulo 01</div>
+  <h2>Por que o jeito antigo trava você</h2>
+  <p class="lead">Antes de mostrar o método, preciso que você enxergue exatamente o que está te segurando. São três armadilhas — e provavelmente você está em pelo menos uma delas.</p>
 
-    <div class="tool-item">
-      <div class="tool-badge">🌐</div>
-      <div class="tool-info">
-        <h4>WordPress.com (Plano Gratuito)</h4>
-        <p>O CMS mais usado do mundo. O plano gratuito inclui hospedagem, subdomínio e dezenas de templates profissionais. Ideal para blogs e portfólios.</p>
-        <div class="tool-pros">
-          <span class="pro">100% Grátis</span>
-          <span class="pro">Fácil de usar</span>
-          <span class="pro">SEO básico</span>
-          <span class="con">Anúncios da plataforma</span>
-          <span class="con">Domínio é subdomínio</span>
-        </div>
-      </div>
-    </div>
+  <h3>Armadilha 1 — As plataformas que cobram por crédito</h3>
+  <p>Ferramentas como o Lovable e similares são incríveis pra começar. O problema aparece depois: você cria no impulso, gosta do resultado, mas quando vai ajustar de verdade ou entregar pra um cliente, esbarra no limite de créditos. Aí você paga assinatura. Os créditos acabam de novo no meio de um projeto. E você fica refém de um custo fixo que existe <strong>antes</strong> de o cliente te pagar.</p>
+  <figure class="fig">
+    <img src="assets/cap1_lovable_limit.jpg" alt="Tela de uma plataforma mostrando limite de crédito atingido">
+    <figcaption><span class="ftag">Fig. 1.1</span><span class="fdesc">"Limite de crédito atingido" — o aviso que aparece bem na hora de entregar. A partir daí, ou você paga, ou o projeto para.</span></figcaption>
+  </figure>
 
-    <div class="tool-item">
-      <div class="tool-badge">✏️</div>
-      <div class="tool-info">
-        <h4>Carrd.co</h4>
-        <p>Perfeito para landing pages de uma página (one-page). Design moderno, sem precisar saber código. Funciona muito bem para captura de leads.</p>
-        <div class="tool-pros">
-          <span class="pro">Grátis até 3 sites</span>
-          <span class="pro">Design profissional</span>
-          <span class="pro">Rápido de criar</span>
-          <span class="con">Apenas 1 página</span>
-        </div>
-      </div>
-    </div>
+  <h3>Armadilha 2 — A hospedagem mensal que come sua margem</h3>
+  <p>O modelo antigo manda você contratar hospedagem paga pra colocar qualquer site no ar. Parece pouco — R$15, R$30 por mês — mas multiplique por cada cliente, some o domínio, o e-mail, os add-ons, e de repente você está pagando mais do que ganha nos primeiros meses. Pior: se o cliente atrasa, o custo continua correndo pra você.</p>
+  <figure class="fig">
+    <img src="assets/cap1_hosting_invoice.jpg" alt="Fatura de hospedagem mensal">
+    <figcaption><span class="ftag">Fig. 1.2</span><span class="fdesc">A fatura que chega todo mês — independente de o cliente ter pago você ou não. É custo fixo antes de existir receita.</span></figcaption>
+  </figure>
 
-    <div class="tool-item">
-      <div class="tool-badge">📄</div>
-      <div class="tool-info">
-        <h4>Google Sites</h4>
-        <p>Parte do ecossistema Google, integra com Google Drive, Forms e Analytics. Simples, estável e com subdomínio no Google.</p>
-        <div class="tool-pros">
-          <span class="pro">Totalmente grátis</span>
-          <span class="pro">Integração Google</span>
-          <span class="pro">Sem anúncios</span>
-          <span class="con">Design limitado</span>
-          <span class="con">Poucas opções de layout</span>
-        </div>
-      </div>
-    </div>
+  <h3>Armadilha 3 — O mito do "aprende a programar primeiro"</h3>
+  <p>Essa é a mais cruel, porque parece nobre. "Estuda HTML, CSS, JavaScript, um framework, aí sim você cobra." Resultado: a pessoa passa 6 meses estudando, não fatura nada, desanima e desiste — bem antes de entregar o primeiro site real.</p>
+  <p>A verdade incômoda: <strong>seu cliente não está pagando pelo seu código. Ele está pagando por um site bonito, no ar, que traz cliente pra ele.</strong> Como você chega nesse resultado é problema seu — e existe um caminho muito mais curto.</p>
 
-    <div class="tool-item">
-      <div class="tool-badge">🚀</div>
-      <div class="tool-info">
-        <h4>GitHub Pages + Jekyll</h4>
-        <p>Para quem tem (ou quer ter) noção básica de código. Hospedagem completamente gratuita, <mark>domínio próprio grátis</mark> e performance excepcional.</p>
-        <div class="tool-pros">
-          <span class="pro">Domínio customizado</span>
-          <span class="pro">Alta performance</span>
-          <span class="pro">100% grátis</span>
-          <span class="con">Curva de aprendizado</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-badge">⚡</div>
-      <div class="tool-info">
-        <h4>Netlify</h4>
-        <p>Hospedagem gratuita para sites estáticos com deploy automático. Uma das melhores opções para quem quer performance e profissionalismo.</p>
-        <div class="tool-pros">
-          <span class="pro">CDN global grátis</span>
-          <span class="pro">HTTPS automático</span>
-          <span class="pro">Deploy fácil</span>
-          <span class="con">Requer conhecimento técnico básico</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-badge">📝</div>
-      <div class="tool-info">
-        <h4>Notion como Site Público</h4>
-        <p>Transforme uma página do Notion num site público. Zero configuração, visual clean e moderno. Ideal para portfólios e wikis pessoais.</p>
-        <div class="tool-pros">
-          <span class="pro">Zero configuração</span>
-          <span class="pro">Visual moderno</span>
-          <span class="pro">Atualização em tempo real</span>
-          <span class="con">URL não é personalizável no grátis</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-badge">🎨</div>
-      <div class="tool-info">
-        <h4>Wix Free</h4>
-        <p>Editor drag-and-drop com centenas de templates profissionais. Ótimo para quem quer um site bonito sem saber código.</p>
-        <div class="tool-pros">
-          <span class="pro">Drag-and-drop</span>
-          <span class="pro">Muitos templates</span>
-          <span class="pro">App Market</span>
-          <span class="con">Anúncio do Wix no site</span>
-          <span class="con">Subdomínio Wix</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cta-inline">
-      <span class="tag">Segredo da Mentoria</span>
-      <h3>Qual dessas ferramentas realmente converte?</h3>
-      <p>Listar ferramentas é fácil. O que <strong>não está aqui</strong> é saber qual usar para cada objetivo — e as configurações específicas que fazem um site gratuito parecer (e performar) igual a um profissional. Na mentoria, você vê telas comigo, ao vivo.</p>
-      <a href="#final-cta" class="btn-primary">Quero aprender na prática →</a>
-    </div>
+  <div class="box">
+    <span class="box-tag">A conta que ninguém te mostra</span>
+    <p>No modelo antigo, antes do primeiro cliente pagar, você já gastou com plataforma + hospedagem + tempo de estudo. No método deste guia, esse número é <span class="roxo">zero</span>. Você só investe quando o cliente já está fechando.</p>
   </div>
+  <span class="pg-num">MX · 04</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPÍTULO 3 — PASSO A PASSO
-═══════════════════════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="chapter-num">Capítulo 03</div>
-    <div class="section-header">
-      <span class="tag tag-yellow">Prática</span>
-      <h2>Seu site no ar em 7 passos</h2>
-      <p>Vamos usar o WordPress.com como exemplo por ser a opção mais completa do plano gratuito. O processo em outras plataformas é similar.</p>
-    </div>
+<!-- ============ CAP 2 ============ -->
+<section class="page" id="cap2">
+  <div class="kicker">Capítulo 02</div>
+  <h2>As 4 ferramentas que mudam o jogo</h2>
+  <p class="lead">O método inteiro roda sobre quatro ferramentas. Três são 100% gratuitas. A quarta você provavelmente já usa pra outras coisas. Juntas, elas substituem tudo que você pagava antes.</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h4>Crie sua conta gratuita</h4>
-          <p>Acesse <strong>wordpress.com</strong> e clique em "Começar". Use seu e-mail ou faça login com o Google. O processo leva menos de 2 minutos.</p>
-          <div class="tip">💡 Use um e-mail profissional se tiver. Ele aparece nas configurações do site e passa mais credibilidade.</div>
-        </div>
-      </div>
+  <h3>1. Claude Design — o seu "designer"</h3>
+  <p>É onde o site nasce. Você descreve o que quer em português normal e ele monta o layout pronto, bonito e responsivo. Sem abrir editor de imagem, sem template engessado. É o substituto direto das plataformas que cobravam crédito.</p>
+  <figure class="fig">
+    <img src="assets/cap2_claude_design.jpg" alt="Tela inicial do Claude Design">
+    <figcaption><span class="ftag">Fig. 2.1</span><span class="fdesc">A tela inicial do Claude Design — onde você descreve o site e ele monta o layout.</span></figcaption>
+  </figure>
 
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h4>Escolha o objetivo do seu site</h4>
-          <p>O WordPress vai perguntar para que você quer o site. Escolha a opção mais próxima do seu caso: blog, portfólio, negócio, loja, etc.</p>
-        </div>
-      </div>
+  <h3>2. Claude Code — o seu "programador"</h3>
+  <p>É quem transforma o design em código de verdade e faz qualquer ajuste que você pedir — trocar uma cor, mexer no espaçamento, adicionar uma seção — tudo conversando em português, direto no editor.</p>
+  <figure class="fig">
+    <img src="assets/cap2_claude_code.jpg" alt="Claude Code rodando no terminal">
+    <figcaption><span class="ftag">Fig. 2.2</span><span class="fdesc">O Claude Code rodando no terminal — ele lê, escreve e ajusta o código a partir do seu pedido em português.</span></figcaption>
+  </figure>
 
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h4>Selecione um template profissional</h4>
-          <p>Escolha um template que faça sentido para o seu nicho. Não se preocupe com perfeição agora — você pode mudar depois.</p>
-          <div class="tip">💡 Templates minimalistas geralmente têm melhor desempenho do que os mais "cheios". Menos é mais.</div>
-        </div>
-      </div>
+  <h3>3. GitHub — o seu "cofre"</h3>
+  <p>É onde o código do site fica guardado e versionado, de graça. Funciona como uma ponte: o que você salva ali, a hospedagem pega automaticamente.</p>
+  <figure class="fig">
+    <img src="assets/cap2_github_home.jpg" alt="Página inicial do GitHub">
+    <figcaption><span class="ftag">Fig. 2.3</span><span class="fdesc">O GitHub — o cofre gratuito onde o código fica guardado e versionado.</span></figcaption>
+  </figure>
 
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h4>Configure seu subdomínio</h4>
-          <p>No plano gratuito, seu endereço será algo como <strong>seunome.wordpress.com</strong>. Escolha algo simples, fácil de digitar e que represente sua marca.</p>
-        </div>
-      </div>
+  <h3>4. Vercel — a sua "hospedagem grátis"</h3>
+  <p>É aqui que mora a virada de chave. A Vercel coloca seu site no ar de graça, com link profissional, certificado de segurança e velocidade absurda. Toda vez que você atualiza o código no GitHub, ela republica sozinha. <strong>Zero de hospedagem, pra sempre.</strong></p>
+  <figure class="fig">
+    <img src="assets/cap2_vercel_dashboard.jpg" alt="Dashboard da Vercel com projetos publicados">
+    <figcaption><span class="ftag">Fig. 2.4</span><span class="fdesc">O painel da Vercel — cada projeto no ar com link próprio, gratuito e republicado sozinho a cada atualização.</span></figcaption>
+  </figure>
 
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-content">
-          <h4>Personalize as páginas principais</h4>
-          <p>Crie pelo menos: <strong>Início</strong>, <strong>Sobre</strong> e <strong>Contato</strong>. Essas três páginas são o mínimo para qualquer site profissional.</p>
-          <div class="tip">💡 A página "Sobre" é a mais visitada depois da página inicial. Capriche no texto. Fale quem você é, para quem você atende e qual transformação você entrega.</div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">6</div>
-        <div class="step-content">
-          <h4>Adicione suas informações de contato</h4>
-          <p>Coloque e-mail, WhatsApp (com link direto) e links das suas redes sociais. Facilite ao máximo o contato do visitante com você.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">7</div>
-        <div class="step-content">
-          <h4>Publique e compartilhe</h4>
-          <p>Clique em "Publicar" e compartilhe seu link nas redes sociais, na bio do Instagram e em qualquer material de divulgação.</p>
-          <div class="tip">🎉 Parabéns! Você tem um site no ar. Mas o trabalho real começa agora...</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="warning-box" style="margin-top:36px">
-      <div class="icon">🔍</div>
-      <div>
-        <h5>Mas o site vai aparecer no Google?</h5>
-        <p>Não automaticamente. Apenas publicar um site não garante que ele vai aparecer nas buscas. Você precisa de uma estratégia de SEO — e é exatamente aqui que a maioria das pessoas para de evoluir e nunca vê resultado de verdade.</p>
-      </div>
-    </div>
-  </div>
+  <table class="tbl">
+    <tr><th>Ferramenta</th><th>Faz o papel de</th><th>Custo</th></tr>
+    <tr><td>Claude Design</td><td>Designer</td><td>Incluso no Claude</td></tr>
+    <tr><td>Claude Code</td><td>Programador</td><td>Incluso no Claude</td></tr>
+    <tr><td>GitHub</td><td>Versionamento</td><td class="zero">R$ 0</td></tr>
+    <tr><td>Vercel</td><td>Hospedagem</td><td class="zero">R$ 0</td></tr>
+    <tr><td>Domínio (opcional)</td><td>Endereço próprio</td><td>~R$40/ano</td></tr>
+  </table>
+  <p class="mini">O domínio é opcional — você pode entregar no link gratuito da Vercel e só comprar o domínio quando o cliente quiser o endereço próprio.</p>
+  <span class="pg-num">MX · 05</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPÍTULO 4 — O ICEBERG
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="chapter-num">Capítulo 04</div>
-    <div class="section-header">
-      <span class="tag tag-red">Importante</span>
-      <h2>O que este ebook não te conta — e precisa contar</h2>
-      <p>Vou ser completamente transparente com você sobre o que é necessário para um site realmente funcionar.</p>
-    </div>
+<!-- ============ CAP 3 ============ -->
+<section class="page" id="cap3">
+  <div class="kicker">Capítulo 03</div>
+  <h2>Montando seu ambiente (uma vez só)</h2>
+  <p class="lead">Essa parte você faz uma única vez. Depois de configurado, vale pra todos os sites que você criar dali pra frente. Reserve 20 minutos e siga na ordem.</p>
 
-    <p style="margin-bottom:28px">Criar um site é a parte mais simples. O que faz a diferença entre um site que fica esquecido e um site que <strong>atrai clientes, gera receita e cresce todo mês</strong> é o que está abaixo da superfície.</p>
-
-    <div class="iceberg-wrap">
-      <div class="iceberg">
-        <div class="ice-visible">
-          <h4>🧊 O que você vê (e aprendeu aqui)</h4>
-          <ul class="ice-list">
-            <li>Criar o site na plataforma</li>
-            <li>Escolher um template</li>
-            <li>Configurar páginas básicas</li>
-            <li>Publicar o site</li>
-          </ul>
-        </div>
-        <div class="ice-below">
-          <h4>🔒 O que realmente faz um site funcionar</h4>
-          <ul class="ice-list">
-            <li>SEO técnico e on-page (aparecer no Google)</li>
-            <li>Pesquisa de palavras-chave do seu nicho</li>
-            <li>Copywriting persuasivo que converte visitantes</li>
-            <li class="locked">Estratégia de conteúdo para tráfego orgânico</li>
-            <li class="locked">Configuração de conversão e CTA estratégico</li>
-            <li class="locked">Integração com ferramentas de e-mail marketing</li>
-            <li class="locked">Analytics: o que medir e como agir nos dados</li>
-            <li class="locked">Como monetizar o tráfego do site</li>
-            <li class="locked">Escalar para domínio próprio sem perder ranqueamento</li>
-          </ul>
-          <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.45)">🔒 Conteúdo disponível exclusivamente na Mentoria Premium</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="success-box" style="margin-top:32px">
-      <div class="icon">🎯</div>
-      <div>
-        <h5>Boa notícia</h5>
-        <p>Tudo que está "abaixo da superfície" pode ser aprendido. Não é complicado — só é específico. Na mentoria premium, eu pego na sua mão e te ensino cada um desses pontos com aulas ao vivo, vídeo chamadas e suporte enquanto você implementa.</p>
-      </div>
-    </div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><div class="st-t">Crie sua conta no GitHub</div><div class="st-d">Acesse github.com, clique em "Sign up" e crie uma conta gratuita com seu e-mail. Guarde o login — você vai usar bastante.</div></div></div>
+    <div class="step"><div class="n">2</div><div><div class="st-t">Instale o VS Code</div><div class="st-d">É o editor onde o site vai ser ajustado. Baixe em code.visualstudio.com, instale como qualquer programa e abra.</div></div></div>
+    <div class="step"><div class="n">3</div><div><div class="st-t">Crie sua conta na Vercel</div><div class="st-d">Em vercel.com, clique em "Sign up" e escolha entrar <strong>com o GitHub</strong>. Isso já conecta os dois automaticamente — é o que faz a mágica do deploy.</div></div></div>
+    <div class="step"><div class="n">4</div><div><div class="st-t">Tenha o Claude ativo</div><div class="st-d">Garanta acesso ao Claude com o Claude Design e o Claude Code habilitados. É a sua dupla de designer + programador.</div></div></div>
   </div>
+
+  <div class="fig-grid">
+    <figure class="fig">
+      <img src="assets/cap3_github_signup.jpg" alt="Tela de cadastro do GitHub">
+      <figcaption><span class="ftag">Fig. 3.1</span><span class="fdesc">Cadastro no GitHub.</span></figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="assets/cap3_vscode_clean.jpg" alt="VS Code aberto">
+      <figcaption><span class="ftag">Fig. 3.2</span><span class="fdesc">O VS Code instalado e aberto.</span></figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="assets/cap3_vercel_github_connect.jpg" alt="Vercel conectando com o GitHub">
+      <figcaption><span class="ftag">Fig. 3.3</span><span class="fdesc">Vercel conectada ao GitHub.</span></figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="assets/cap3_claude_design_active.jpg" alt="Claude Design ativo na conta">
+      <figcaption><span class="ftag">Fig. 3.4</span><span class="fdesc">Claude Design ativo na conta.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="box accent">
+    <span class="box-tag">Atalho importante</span>
+    <p>Sempre entre na Vercel <strong>usando o login do GitHub</strong>. Isso liga as duas plataformas de uma vez e elimina configuração chata depois. É o segredo que faz o site publicar sozinho a cada atualização.</p>
+  </div>
+  <span class="pg-num">MX · 06</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     COMPARAÇÃO
-═══════════════════════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="tag tag-purple">Comparação</span>
-      <h2>Ebook grátis vs Mentoria Premium</h2>
-      <p>Para que você tome a decisão mais informada possível, aqui está uma comparação honesta.</p>
-    </div>
+<!-- ============ CAP 4 ============ -->
+<section class="page" id="cap4">
+  <div class="kicker">Capítulo 04</div>
+  <h2>Criando seu primeiro site no Claude Design</h2>
+  <p class="lead">Chegou a parte divertida. Aqui o site nasce — e o segredo de um bom resultado está em como você descreve o que quer.</p>
 
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>O que você aprende</th>
-          <th>📖 Este Ebook</th>
-          <th>🏆 Mentoria Premium</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Criar e publicar um site grátis</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>Escolher a melhor plataforma</td>
-          <td>Básico</td>
-          <td>Análise personalizada</td>
-        </tr>
-        <tr>
-          <td>SEO para aparecer no Google</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Completo</span></td>
-        </tr>
-        <tr>
-          <td>Copywriting que converte</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Com templates</span></td>
-        </tr>
-        <tr>
-          <td>Estratégia de captação de leads</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Passo a passo</span></td>
-        </tr>
-        <tr>
-          <td>Como monetizar o site</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Múltiplos modelos</span></td>
-        </tr>
-        <tr>
-          <td>Aulas ao vivo com o mentor</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Toda semana</span></td>
-        </tr>
-        <tr>
-          <td>Videochamadas individuais</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Incluído</span></td>
-        </tr>
-        <tr>
-          <td>Suporte direto com o mentor</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ 24h por dia</span></td>
-        </tr>
-        <tr>
-          <td>Feedback no seu site específico</td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="check">✓ Análise individual</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <h3>Comece com um repositório vazio</h3>
+  <p>Antes do design, crie um repositório novo e vazio no GitHub (botão "New" → dê um nome, ex: <em>site-maria-psicologa</em> → "Create repository"). É a pasta onde tudo vai morar. Deixe ele aberto, voltaremos nele.</p>
+
+  <h3>Descreva o site como se fosse pra um designer</h3>
+  <p>No Claude Design, selecione o modo de alta fidelidade e descreva o site com o máximo de contexto: para quem é, o que a pessoa faz, o tom (elegante, moderno, acolhedor), as cores e as seções que você quer. Quanto mais específico, melhor o primeiro resultado.</p>
+
+  <div class="box">
+    <span class="box-tag">Exemplo de prompt que funciona</span>
+    <p><em>"Crie uma landing page elegante e moderna para uma psicóloga chamada Maria, especialista em ansiedade. Tom acolhedor e profissional, cores em tons de verde-sálvia e off-white. Seções: topo com nome e chamada de autoridade + botão de WhatsApp; selos de confiança; cards de serviços com foto de fundo; sobre a profissional com foto; depoimentos; e rodapé com Instagram e WhatsApp. Mobile-first."</em></p>
   </div>
+
+  <p>Repare num detalhe que faz diferença: peça sempre <strong>cards de serviço com foto de fundo</strong>, não só ícones. É o que separa um site amador de um profissional.</p>
+
+  <figure class="fig">
+    <img src="assets/cap4_claude_design_prompt.jpg" alt="Claude Design gerando o site com o prompt visível">
+    <figcaption><span class="ftag">Fig. 4.1</span><span class="fdesc">O Claude Design gerando o site a partir do seu prompt \u2014 quanto mais contexto, melhor o primeiro resultado.</span></figcaption>
+  </figure>
+  <figure class="fig">
+    <img src="assets/cap4_claude_design_ready.jpg" alt="Resultado do layout pronto no Claude Design">
+    <figcaption><span class="ftag">Fig. 4.2</span><span class="fdesc">O layout pronto, bonito e responsivo \u2014 gerado em segundos, sem abrir editor de imagem.</span></figcaption>
+  </figure>
+
+  <h3>Ajuste o visual ali mesmo</h3>
+  <p>Não gostou de algo? Peça a mudança em português: "deixa o topo mais escuro", "troca essa foto", "aumenta o título". Itere até o layout ficar do jeito que você quer antes de avançar. Se já tiver as fotos reais do cliente, insira agora — o site já sai pronto.</p>
+  <span class="pg-num">MX · 07</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CAPÍTULO 5 — PRÓXIMOS PASSOS
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="chapter-num">Capítulo 05</div>
-    <div class="section-header">
-      <span class="tag tag-green">Próximos Passos</span>
-      <h2>O que fazer depois que seu site estiver no ar</h2>
-      <p>Publicar é o começo. Aqui estão as próximas ações para você não perder o momentum.</p>
-    </div>
+<!-- ============ CAP 5 ============ -->
+<section class="page" id="cap5">
+  <div class="kicker">Capítulo 05</div>
+  <h2>Do design ao código — o pulo do gato</h2>
+  <p class="lead">Você tem o design pronto. Agora vamos transformá-lo em um site de verdade, editável, no seu computador. É aqui que a maioria acha que precisa saber programar — e é exatamente aqui que você vai provar que não precisa.</p>
 
-    <ul class="checklist">
-      <li>Compartilhe o link do seu site em todas as suas redes sociais</li>
-      <li>Adicione o link na bio do Instagram e WhatsApp</li>
-      <li>Crie pelo menos 2 posts de conteúdo por semana no blog (se tiver)</li>
-      <li>Configure o Google Search Console para monitorar sua presença no Google</li>
-      <li>Instale o Google Analytics para entender quem visita seu site</li>
-      <li>Peça para amigos e clientes acessarem e darem feedback</li>
-    </ul>
-
-    <div class="teaser-block">
-      <div class="teaser-content">
-        <h4>Como ranquear no Google em 30 dias</h4>
-        <p>Existe uma sequência específica de 8 ações que, quando feitas na ordem certa, colocam qualquer site novo na primeira página do Google em menos de 30 dias para palavras-chave de nicho. Essa estratégia combina SEO técnico, criação de conteúdo estratégico e linkbuilding interno...</p>
-        <p>O passo 1 é configurar o Google Search Console e submeter o sitemap. O passo 2 é identificar as 3 palavras-chave com menos competição no seu nicho usando a técnica de...</p>
-      </div>
-      <div class="teaser-overlay">
-        <div class="lock-icon">🔒</div>
-        <h4>Conteúdo Exclusivo da Mentoria</h4>
-        <p>Esta estratégia completa de ranqueamento é ensinada passo a passo nas aulas ao vivo da Mentoria Premium.</p>
-        <a href="#final-cta" class="btn-primary" style="font-size:13px;padding:10px 20px">Desbloquear acesso →</a>
-      </div>
-    </div>
-
-    <div class="cta-inline">
-      <span class="tag">🔥 Para quem quer ir além</span>
-      <h3>Pronto para transformar seu site em uma máquina de resultados?</h3>
-      <p>Este ebook te deu a base. Mas se você quer <strong>tráfego real, clientes de verdade e uma presença digital que cresce sozinha</strong>, o próximo passo é a Mentoria Premium.</p>
-      <div class="cta-features">
-        <div class="cta-feature">Aulas ao vivo toda semana — você vê na prática, não só na teoria</div>
-        <div class="cta-feature">Videochamadas individuais — eu analiso seu site e te digo exatamente o que melhorar</div>
-        <div class="cta-feature">Suporte 24h — manda mensagem a qualquer hora e eu respondo</div>
-        <div class="cta-feature">Comunidade exclusiva de alunos aplicando junto com você</div>
-        <div class="cta-feature">Acesso a todos os templates, checklists e ferramentas que uso nos meus projetos</div>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <a href="#final-cta" class="btn-primary">Quero a Mentoria Premium →</a>
-        <a href="#final-cta" class="btn-ghost">Ver o que está incluído</a>
-      </div>
-    </div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><div class="st-t">Clique em "Send to Claude Code"</div><div class="st-d">No botão de exportar do Claude Design, escolha "Send to Claude Code" e depois "Copy command". Ele copia um comando pronto pra você.</div></div></div>
+    <div class="step"><div class="n">2</div><div><div class="st-t">Abra o VS Code no seu repositório</div><div class="st-d">Abra a pasta do repositório vazio que você criou. No terminal do VS Code, digite <em>claude</em> pra iniciar o Claude Code.</div></div></div>
+    <div class="step"><div class="n">3</div><div><div class="st-t">Cole o comando</div><div class="st-d">Cole o comando copiado e dê enter. O Claude Code busca seu design e cria todos os arquivos do site automaticamente, ali na sua pasta.</div></div></div>
+    <div class="step"><div class="n">4</div><div><div class="st-t">Peça os ajustes em português</div><div class="st-d">Agora é só conversar: "troca o texto do topo", "muda a cor do botão pra roxo", "coloca a foto que está na pasta no card de serviços". Ele edita o código pra você.</div></div></div>
   </div>
+
+  <figure class="fig">
+    <img src="assets/cap5_send_to_code.jpg" alt="Botão Send to Claude Code com Copy command">
+    <figcaption><span class="ftag">Fig. 5.1</span><span class="fdesc">\"Send to Claude Code\" \u2192 \"Copy command\": ele copia um comando pronto pra voc\u00ea colar.</span></figcaption>
+  </figure>
+  <figure class="fig">
+    <img src="assets/cap5_vscode_files.jpg" alt="Arquivos do site chegando no VS Code">
+    <figcaption><span class="ftag">Fig. 5.2</span><span class="fdesc">Os arquivos do site aparecendo na sua pasta, sincronizados direto do Claude Design.</span></figcaption>
+  </figure>
+  <figure class="fig">
+    <img src="assets/cap5_claude_code_adjust.jpg" alt="Claude Code fazendo um ajuste no código">
+    <figcaption><span class="ftag">Fig. 5.3</span><span class="fdesc">Voc\u00ea pede em portugu\u00eas, ele edita o c\u00f3digo \u2014 aqui, trocando a cor de um bot\u00e3o.</span></figcaption>
+  </figure>
+
+  <div class="box accent">
+    <span class="box-tag">A virada de mentalidade</span>
+    <p>Você não está escrevendo código. Você está <strong>dirigindo</strong> quem escreve. Seu trabalho é saber o que pedir e ter bom gosto pra avaliar o resultado — e isso você já tem.</p>
+  </div>
+  <span class="pg-num">MX · 08</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     DEPOIMENTOS
-═══════════════════════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="tag tag-yellow">Resultados Reais</span>
-      <h2>O que dizem quem saiu do ebook e entrou na mentoria</h2>
-      <p>Estas são histórias de pessoas que começaram exatamente onde você está agora.</p>
-    </div>
+<!-- ============ CAP 6 ============ -->
+<section class="page" id="cap6">
+  <div class="kicker">Capítulo 06</div>
+  <h2>Publicando de graça (GitHub + Vercel)</h2>
+  <p class="lead">O site está pronto no seu computador. Faltam dois passos pra ele estar no ar, acessível pra qualquer pessoa do mundo — sem pagar hospedagem.</p>
 
-    <div class="testimonials">
-      <div class="testimonial">
-        <div class="test-head">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#7C3AED,#4C1D95)">C</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="test-name">Camila Rodrigues</div>
-            <div class="test-role">Designer Freelancer · São Paulo</div>
-          </div>
-        </div>
-        <p>"Fiz o site pelo ebook e ficou bonito, mas ninguém achava. Entrei na mentoria, aprendi SEO e em 45 dias meu site estava na primeira página do Google para 'designer freelancer SP'. Hoje recebo 3 a 4 contatos orgânicos por semana."</p>
-      </div>
+  <h3>Passo 1 — Suba o código pro GitHub</h3>
+  <p>No próprio VS Code (ou pedindo pro Claude Code), envie os arquivos pro repositório com um commit e um push pra branch principal (a <em>main</em>). Em segundos, todo o seu site está salvo e versionado no GitHub, de graça.</p>
 
-      <div class="testimonial">
-        <div class="test-head">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#10B981,#059669)">R</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="test-name">Rafael Mendonça</div>
-            <div class="test-role">Consultor de Marketing · Curitiba</div>
-          </div>
-        </div>
-        <p>"O ebook me deu o start. A mentoria me deu direção. A diferença é enorme: saí de zero visitas para mais de 800 visitas orgânicas por mês em 3 meses. As videochamadas individuais valem mais do que qualquer curso que já comprei."</p>
-      </div>
+  <h3>Passo 2 — Faça o deploy na Vercel</h3>
+  <p>Na primeira vez de cada projeto: entre na Vercel → "Add New" → "Project" → importe o repositório que acabou de subir. Em "Framework" escolha "Other", deixe os campos de build vazios e clique em "Deploy". Em menos de um minuto, você recebe um link no ar.</p>
+  <p>A partir daí, é automático: <strong>toda vez que você atualizar o código no GitHub, a Vercel republica o site sozinha.</strong> Você nunca mais mexe nessa parte.</p>
 
-      <div class="testimonial">
-        <div class="test-head">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706)">J</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="test-name">Juliana Santos</div>
-            <div class="test-role">Coach de Carreira · Rio de Janeiro</div>
-          </div>
-        </div>
-        <p>"O suporte 24h fez toda a diferença. Tive um problema técnico no lançamento do meu produto às 23h e o Maxwel respondeu em menos de 10 minutos. Isso não tem preço. Meu site agora converte 6% dos visitantes em clientes."</p>
-      </div>
-    </div>
+  <figure class="fig">
+    <img src="assets/cap6_github_push.jpg" alt="Push do código pro GitHub no terminal">
+    <figcaption><span class="ftag">Fig. 6.1</span><span class="fdesc">O <em>commit</em> e o <em>push</em> enviando o site pro GitHub \u2014 em segundos, tudo salvo e versionado.</span></figcaption>
+  </figure>
+  <figure class="fig">
+    <img src="assets/cap6_vercel_success.jpg" alt="Tela de deploy concluído na Vercel">
+    <figcaption><span class="ftag">Fig. 6.2</span><span class="fdesc">A tela verde de sucesso da Vercel: <strong>deploy conclu\u00eddo</strong>, seu projeto est\u00e1 no ar.</span></figcaption>
+  </figure>
+  <figure class="fig">
+    <img src="assets/cap6_site_live.jpg" alt="Site no ar funcionando com URL .vercel.app">
+    <figcaption><span class="ftag">Fig. 6.3</span><span class="fdesc">O site no ar, funcionando na URL <em>.vercel.app</em> \u2014 pronto pra mandar pro cliente.</span></figcaption>
+  </figure>
+
+  <h3>Bônus — Domínio próprio por ~R$40/ano</h3>
+  <p>Quando o cliente quiser um endereço próprio (ex: <em>mariapsicologa.com.br</em>), é simples: ele compra o domínio no Registro.br, você adiciona o domínio no projeto da Vercel, configura os registros DNS que ela mostra e pronto. A Vercel <strong>não cobra nada</strong> pra conectar domínio próprio.</p>
+
+  <div class="box">
+    <span class="box-tag">Pare e comemore</span>
+    <p>Se você chegou até aqui executando, você tem um site profissional no ar agora, com custo de hospedagem igual a <span class="roxo">zero</span>. Esse era o objetivo do guia. Mas tem um detalhe que muda tudo — vira a página.</p>
   </div>
+  <span class="pg-num">MX · 09</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CTA FINAL
-═══════════════════════════════════════════════════════ -->
-<section id="final-cta">
-  <div class="container">
-    <span class="tag" style="background:rgba(255,255,255,.12);color:#FCD34D;margin-bottom:20px;display:inline-block">🏆 Mentoria Premium</span>
-    <h2>Você tem a base.<br>Agora vamos construir <em>resultados</em>.</h2>
-    <p>Este ebook te ensinou a criar um site. A mentoria vai te ensinar a fazer esse site <strong style="color:#fff">trabalhar por você</strong>.</p>
-
-    <div class="price-badge">
-      <span class="old-price">De R$ 997</span>
-      <span class="new-price">R$ 497</span>
-      <span class="price-sub">Acesso completo · Pagamento único</span>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px;align-items:center;margin-bottom:32px">
-      <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px">
-        <span style="font-size:18px">🎥</span> Aulas ao vivo toda semana com o mentor
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px">
-        <span style="font-size:18px">📹</span> Videochamadas individuais para análise do seu site
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px">
-        <span style="font-size:18px">💬</span> Suporte direto 24h por dia — sem robôs, sem espera
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px">
-        <span style="font-size:18px">📚</span> Acesso vitalício a todos os materiais e aulas gravadas
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14px">
-        <span style="font-size:18px">🎁</span> Templates exclusivos de sites que já comprovaram conversão
-      </div>
-    </div>
-
-    <a href="#" class="btn-primary" style="font-size:17px;padding:18px 40px">
-      Quero entrar na Mentoria Premium →
-    </a>
-
-    <div class="guarantee">
-      <span class="shield">🛡️</span>
-      Garantia de 7 dias — se não for o que espera, devolvemos 100% do seu investimento
-    </div>
-
-    <p style="margin-top:32px;font-size:13px;color:rgba(255,255,255,.4)">Vagas limitadas por turma para garantir atenção individual de qualidade.</p>
+<!-- ============ CAP 7 ============ -->
+<section class="page" id="cap7">
+  <div class="kicker">Capítulo 07</div>
+  <h2>E agora? O próximo nível</h2>
+  <p class="lead">Você acabou de aprender a parte técnica. E só por isso já está na frente de 90% das pessoas que ficam presas estudando framework e nunca entregam nada.</p>
+  <p>Mas vou ser honesto com você, porque é o que eu gostaria que tivessem me dito no começo: <strong>saber criar o site é só metade do jogo.</strong></p>
+  <p>A outra metade — a que realmente coloca dinheiro no seu bolso — é o que este guia não tem espaço pra ensinar a fundo:</p>
+  <ul class="clean">
+    <li>Quanto cobrar por um site (e como apresentar o preço sem medo)</li>
+    <li>Como prospectar clientes que pagam, mesmo começando sem portfólio</li>
+    <li>Como mandar a prévia e fechar a venda no WhatsApp</li>
+    <li>Como montar proposta, contrato e entregar como uma agência de verdade</li>
+  </ul>
+  <p>Foi juntando essas duas metades — o método técnico + a parte comercial — que eu transformei isso na MX Digital e comecei a fechar clientes de verdade.</p>
+  <div class="box accent">
+    <span class="box-tag">É exatamente isso que eu ensino na mentoria</span>
+    <p>Na Mentoria MX Digital eu pego você pela mão, ao vivo, do setup ao primeiro cliente pagante — incluindo precificação, prospecção e fechamento. Grupo pequeno, acompanhamento de perto.</p>
   </div>
+  <span class="pg-num">MX · 10</span>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <p>© 2024 <strong>Maxwel Fialho · Mentoria Digital</strong> · Todos os direitos reservados.</p>
-    <p style="margin-top:8px;font-size:12px;opacity:.6">Este ebook é gratuito e foi criado para fins educacionais. A Mentoria Premium é um produto pago com vagas limitadas.</p>
+<!-- ============ CTA FINAL ============ -->
+<section class="page cta">
+  <div class="brand" style="justify-content:center;margin-bottom:30px"><img class="dot" src="assets/mx-logo.png" alt="MX Digital"> MX DIGITAL</div>
+  <h2>Pronto pra sair do<br><span style="color:var(--roxo-claro)">site grátis</span> pro<br>primeiro cliente?</h2>
+  <p class="lead" style="max-width:520px;margin:20px auto 0">A mentoria é onde o método vira faturamento. Vagas limitadas pra grupos pequenos.</p>
+  <a class="btn" href="#">Quero conhecer a Mentoria MX Digital →</a>
+  <div class="social">
+    Me chama no Instagram <b>@mxdigital.ia</b> e diz que veio pelo ebook.
   </div>
-</footer>
+  <p class="mini" style="margin-top:40px">© MX Digital · Lajeado/RS · Este material é gratuito. Proibida a revenda.</p>
+</section>
 
 </body>
 </html>
